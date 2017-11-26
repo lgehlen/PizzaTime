@@ -5,11 +5,13 @@
  */
 package main;
 
+import cliente.ClienteForm;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+import pizza.TipoForm;
+import pizza.ValoresForm;
 /**
  *
  * @author lgehlen
@@ -31,6 +33,10 @@ public class Main extends javax.swing.JFrame {
         panelP1 = new javax.swing.JPanel();
         panelLateral = new javax.swing.JPanel();
         panelMenu = new javax.swing.JPanel();
+        btCliente = new javax.swing.JButton();
+        btNovoPedido = new javax.swing.JButton();
+        btValores = new javax.swing.JButton();
+        btPizza = new javax.swing.JButton();
         imgMenu = new javax.swing.JLabel();
         panelBarbicha = new javax.swing.JPanel();
         imgBarbicha = new javax.swing.JLabel();
@@ -39,8 +45,8 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(getPreferredSize());
+        setMinimumSize(new java.awt.Dimension(1100, 600));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelP1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         panelP1.setAlignmentX(300.0F);
@@ -55,8 +61,38 @@ public class Main extends javax.swing.JFrame {
         panelMenu.setBorder(new javax.swing.border.MatteBorder(null));
         panelMenu.setLayout(null);
 
+        btCliente.setText("GERENCIAR CLIENTES");
+        btCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btClienteActionPerformed(evt);
+            }
+        });
+        panelMenu.add(btCliente);
+        btCliente.setBounds(10, 30, 280, 50);
+
+        btNovoPedido.setText("NOVO PEDIDO");
+        btNovoPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoPedidoActionPerformed(evt);
+            }
+        });
+        panelMenu.add(btNovoPedido);
+        btNovoPedido.setBounds(10, 473, 280, 50);
+
+        btValores.setText("GERENCIAR VALORES");
+        btValores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btValoresActionPerformed(evt);
+            }
+        });
+        panelMenu.add(btValores);
+        btValores.setBounds(10, 170, 280, 50);
+
+        btPizza.setText("GERENCIAR PIZZA");
+        panelMenu.add(btPizza);
+        btPizza.setBounds(10, 100, 280, 50);
+
         imgMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menuFundo.png"))); // NOI18N
-        imgMenu.setBorder(null);
         panelMenu.add(imgMenu);
         imgMenu.setBounds(0, 0, 300, 530);
 
@@ -89,7 +125,6 @@ public class Main extends javax.swing.JFrame {
         panelP1.add(panelLateral);
         panelLateral.setBounds(0, 0, 300, 600);
 
-        panelMaior.setBorder(null);
         panelMaior.setLayout(null);
 
         imgFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BG800X600.png"))); // NOI18N
@@ -102,10 +137,34 @@ public class Main extends javax.swing.JFrame {
         panelP1.add(panelMaior);
         panelMaior.setBounds(300, 0, 800, 600);
 
-        getContentPane().add(panelP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelP1, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoPedidoActionPerformed
+        new ClienteForm().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btNovoPedidoActionPerformed
+
+    private void btClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClienteActionPerformed
+        new ClienteForm().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btClienteActionPerformed
+
+    private void btValoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValoresActionPerformed
+        new ValoresForm().setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_btValoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,14 +181,17 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Main teste = new Main();
-                teste.setVisible(true);
-                //teste
+                Main main = new Main();
+                main.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCliente;
+    private javax.swing.JButton btNovoPedido;
+    private javax.swing.JButton btPizza;
+    private javax.swing.JButton btValores;
     private javax.swing.JLabel imgBarbicha;
     private javax.swing.JLabel imgFundo;
     private javax.swing.JLabel imgMenu;
