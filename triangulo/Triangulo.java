@@ -21,7 +21,7 @@ public class Triangulo implements Forma {
    
     @Override
     public float areaToSegmento(float area){
-       float l = 1 ;
+       float l = (float)Math.sqrt((4*area)/(float)Math.sqrt(3));
        return l;
    }
 }
